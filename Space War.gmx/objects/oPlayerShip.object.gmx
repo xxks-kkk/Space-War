@@ -35,6 +35,9 @@ The ship will start at the lowest level, and it will be able to achieve a maximu
 */
 powerUp = 0
 powerUpMax = 3
+
+//Change the speed
+speedUp = 2
 </string>
           </argument>
         </arguments>
@@ -60,6 +63,8 @@ powerUpMax = 3
             <string>/*
 allows to move the ship in 8 directions. It uses the built-in keyboard_check() function
 to detect key presses, and then it moves the ship in the right direction.
+
+Note: If you wanted to make the ship only move in 4 directions instead of 8, a series of if-else statements would have done the trick
 */
 
 /*
@@ -75,16 +80,16 @@ x and y are built-in variables that every object has
 They define where the object's position is on the screen
 */
 if (keyboard_check(vk_up)){
-    y -= 2
+    y -= speedUp
 }
 if (keyboard_check(vk_down)){
-    y += 2
+    y += speedUp
 }
 if (keyboard_check(vk_left)){
-    x -= 2
+    x -= speedUp
 }
 if (keyboard_check(vk_right)){
-    x += 2
+    x += speedUp
 }
 </string>
           </argument>
