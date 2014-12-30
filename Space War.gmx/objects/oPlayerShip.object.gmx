@@ -61,6 +61,14 @@ speedUp = 2
           <argument>
             <kind>1</kind>
             <string>/*
+steps are the FPS(speed of the room) 
+and if your room is 30 FPS it will have 30 steps per second
+so every step event is ran 30 times per second.
+
+fps(frame per sec): number of CPU steps that GameMaker: Studio is actually completing in a second
+*/
+
+/*
 allows to move the ship in 8 directions. It uses the built-in keyboard_check() function
 to detect key presses, and then it moves the ship in the right direction.
 
@@ -90,6 +98,24 @@ if (keyboard_check(vk_left)){
 }
 if (keyboard_check(vk_right)){
     x += speedUp
+}
+
+/*
+when you press the "X" key, your ship fires a bullet
+*/
+
+/*
+ord - to check for any of the letter (A-Z) or digit (0-9) keys, use the "ord" function.  This evaluates to a number that represents the key.  For special keys, like the arrow keys, 
+      there are "constant" (unchangeable) variables defined for them, 
+      like vk_up, vk_down, etc.
+      
+instance_create(xpos, ypos, object) - this is a very useful function!  
+                                      As the name implies, 
+                                      it creates an instance of the given object at the given position
+Note: X has to be capitalized
+*/
+if (keyboard_check(ord('X'))){
+   instance_create(x, y, oPlayerShot1)
 }
 </string>
           </argument>

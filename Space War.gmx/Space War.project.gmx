@@ -7,11 +7,16 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\sPlayerShip</sprite>
+    <sprite>sprites\sPlayerShot1</sprite>
+    <sprite>sprites\sEnemyFlyer</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\oPlayerShip</object>
+    <object>objects\oEnemyFlyer</object>
+    <object>objects\oEnemy</object>
+    <object>objects\oPlayerShot1</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rLevel1</room>
