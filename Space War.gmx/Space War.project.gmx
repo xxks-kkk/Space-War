@@ -11,7 +11,9 @@
     <sprite>sprites\sEnemyFlyer</sprite>
     <sprite>sprites\sExplosion</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bgStarField</background>
+  </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\oPlayerShip</object>
