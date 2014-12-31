@@ -93,17 +93,22 @@ whose values correspond to the keyboard key values
 x and y are built-in variables that every object has
 They define where the object's position is on the screen
 */
+
+/*
+"y+12", "y+16" is to compensate for the fact that the origin of our player ship sprite
+is in the upper left corner
+*/
 if (keyboard_check(vk_up)){
-    y -= speedUp
+   if (y&gt;0) y -= speedUp
 }
 if (keyboard_check(vk_down)){
-    y += speedUp
+   if (y + 12 &lt; room_height) y += speedUp
 }
 if (keyboard_check(vk_left)){
-    x -= speedUp
+   if (x &gt; view_xview[0]) x -= speedUp
 }
 if (keyboard_check(vk_right)){
-    x += speedUp
+   if (x+16 &lt; view_xview[0] + view_wview[0]) x += speedUp
 }
 
 /*

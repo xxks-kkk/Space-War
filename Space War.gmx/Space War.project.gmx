@@ -19,6 +19,7 @@
     <object>objects\oEnemy</object>
     <object>objects\oPlayerShot1</object>
     <object>objects\oExplosion</object>
+    <object>objects\oGame</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rLevel1</room>
