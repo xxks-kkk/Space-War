@@ -13,6 +13,7 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bgStarField</background>
+    <background>background\bgLevel1Tiles</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
