@@ -10,6 +10,7 @@
     <sprite>sprites\sPlayerShot1</sprite>
     <sprite>sprites\sEnemyFlyer</sprite>
     <sprite>sprites\sExplosion</sprite>
+    <sprite>sprites\sWall</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgStarField</background>
@@ -23,6 +24,7 @@
     <object>objects\oPlayerShot1</object>
     <object>objects\oExplosion</object>
     <object>objects\oGame</object>
+    <object>objects\oWall</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rLevel1</room>
