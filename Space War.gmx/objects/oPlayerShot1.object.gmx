@@ -76,7 +76,7 @@ x += xVel
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(other.x, other.y, oExplosion)
+            <string>//instance_create(other.x, other.y, oExplosion)
 instance_destroy()
 </string>
           </argument>

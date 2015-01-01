@@ -50,6 +50,7 @@ alarm[0] = 15
           <argument>
             <kind>1</kind>
             <string>// Allows the alarm event (i.e. alarm 0) happens repeatedly
+// further reference: http://docs.yoyogames.com/source/dadiospice/000_using%20gamemaker/events/alarm%20event.html
 alarm[0] = 30
 
 // create the oEnemyFlyer object
