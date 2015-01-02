@@ -125,7 +125,28 @@ if (instance_exists(oPlayerShip)){ //ensure that the game does not crash if ther
    oPlayerShip.x += 1
 }
 
+/* Deactivating Objects Outside the View
 
+One more thing: every object that is active in the game 
+will slow the game down significantly, especially when doing collision checks.  
+To minimize this, you should try to deactivate any objects that are not needed.  
+This usually includes all the objects that are outside of the view.
+
+The other reason we might want to do this is to prevent the player from killing baddies 
+off screen by firing indiscriminately!
+
+This deactivates every object outside of the view and then activates every object inside the view, 
+with each step.  
+Make sure that the last two parameters of instance_deactivate_region() are false and true,
+respectively.  
+This specifies that you want to deactivate objects outside the region, 
+but don't want to deactivate the controller itself (that would be very bad!).
+
+If you have any other controller objects or otherwise important objects that you want 
+to leave on, make sure you activate them with instance_activate_object().
+*/
+instance_deactivate_region(view_xview[0], 0, view_wview[0], room_height, false, true)
+instance_activate_region(view_xview[0], 0, view_wview[0], room_height, true)
 </string>
           </argument>
         </arguments>
