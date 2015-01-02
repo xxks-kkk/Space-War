@@ -1,4 +1,4 @@
-Space-War
+Space War
 =========
 
 A side scrolling space shooter
