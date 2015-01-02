@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>// setup a alarm (i.e alarm0) to go off in 15 steps
 alarm[0] = 15
+
+// setup revive timer
+reviveTimer = 0;
 </string>
           </argument>
         </arguments>
@@ -145,8 +148,15 @@ but don't want to deactivate the controller itself (that would be very bad!).
 If you have any other controller objects or otherwise important objects that you want 
 to leave on, make sure you activate them with instance_activate_object().
 */
-instance_deactivate_region(view_xview[0], 0, view_wview[0], room_height, false, true)
-instance_activate_region(view_xview[0], 0, view_wview[0], room_height, true)
+instance_deactivate_region(view_xview[0], 0, view_wview[0], room_height, false, true);
+instance_activate_region(view_xview[0], 0, view_wview[0], room_height, true);
+
+// Revive the player if he dies
+if (not instance_exists(oPlayerShip))
+{
+    if (reviveTimer &gt; 0) reviveTimer -= 1;
+    else instance_create(view_xview[0]+32, view_yview[0]+112, oPlayerShip);
+}
 </string>
           </argument>
         </arguments>
