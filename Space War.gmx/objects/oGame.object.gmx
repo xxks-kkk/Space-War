@@ -30,6 +30,11 @@ alarm[0] = 15
 
 // setup revive timer
 reviveTimer = 0;
+
+// Game State Constants
+PLAY = 0
+GAME_OVER = 1
+state = PLAY
 </string>
           </argument>
         </arguments>
@@ -121,41 +126,52 @@ view_xview[] is an array that stores all  the x coordinates of all the views
 */
 
 //view to move right 1 pixel with each step
-view_xview[0] += 1
 
-//we want the player to scroll, too.
-if (instance_exists(oPlayerShip)){ //ensure that the game does not crash if there is no oPlayerShip active in the room (we might if we destroy the player object when the player dies)
-   oPlayerShip.x += 1
+if (state == PLAY){
+    view_xview[0] += 1
+
+    //we want the player to scroll, too.
+    if (instance_exists(oPlayerShip)){ //ensure that the game does not crash if there is no oPlayerShip active in the room (we might if we destroy the player object when the player dies)
+        oPlayerShip.x += 1
+    }
+    
+    // Revive the player if he dies
+    if (not instance_exists(oPlayerShip))
+    {
+        if (reviveTimer &gt; 0) reviveTimer -= 1;
+        else instance_create(view_xview[0]+32, view_yview[0]+112, oPlayerShip);
+    }
+
+    /* Deactivating Objects Outside the View
+
+    One more thing: every object that is active in the game 
+    will slow the game down significantly, especially when doing collision checks.  
+    To minimize this, you should try to deactivate any objects that are not needed.  
+    This usually includes all the objects that are outside of the view.
+
+    The other reason we might want to do this is to prevent the player from killing baddies 
+    off screen by firing indiscriminately!
+
+    This deactivates every object outside of the view and then activates every object inside the view, 
+    with each step.  
+    Make sure that the last two parameters of instance_deactivate_region() are false and true,
+    respectively.  
+    This specifies that you want to deactivate objects outside the region, 
+    but don't want to deactivate the controller itself (that would be very bad!).
+
+    If you have any other controller objects or otherwise important objects that you want 
+    to leave on, make sure you activate them with instance_activate_object().
+    */
+    instance_deactivate_region(view_xview[0], 0, view_wview[0], room_height, false, true);
+    instance_activate_region(view_xview[0], 0, view_wview[0], room_height, true);
+ 
 }
 
-/* Deactivating Objects Outside the View
 
-One more thing: every object that is active in the game 
-will slow the game down significantly, especially when doing collision checks.  
-To minimize this, you should try to deactivate any objects that are not needed.  
-This usually includes all the objects that are outside of the view.
-
-The other reason we might want to do this is to prevent the player from killing baddies 
-off screen by firing indiscriminately!
-
-This deactivates every object outside of the view and then activates every object inside the view, 
-with each step.  
-Make sure that the last two parameters of instance_deactivate_region() are false and true,
-respectively.  
-This specifies that you want to deactivate objects outside the region, 
-but don't want to deactivate the controller itself (that would be very bad!).
-
-If you have any other controller objects or otherwise important objects that you want 
-to leave on, make sure you activate them with instance_activate_object().
-*/
-instance_deactivate_region(view_xview[0], 0, view_wview[0], room_height, false, true);
-instance_activate_region(view_xview[0], 0, view_wview[0], room_height, true);
-
-// Revive the player if he dies
-if (not instance_exists(oPlayerShip))
-{
-    if (reviveTimer &gt; 0) reviveTimer -= 1;
-    else instance_create(view_xview[0]+32, view_yview[0]+112, oPlayerShip);
+if (state == GAME_OVER){
+    if keyboard_check(vk_space){
+        room_goto(rTitle)
+    }
 }
 </string>
           </argument>
@@ -186,8 +202,14 @@ draw_sprite() will draw a single frame of a sprite somewhere on the screen.
 You can also use draw_sprite_ext(), 
 which has more parameters, such as the rotation and color of the image.
 */
-draw_sprite(sPlayerShipIcon, 0, view_xview[0]+3, 226)
-draw_text (view_xview[0]+14, 228, string(global.pLives))
+
+if (state == PLAY){
+    draw_sprite(sPlayerShipIcon, 0, view_xview[0]+3, 226)
+    draw_text (view_xview[0]+14, 228, string(global.pLives))
+}
+else if (state == GAME_OVER){
+    drawTextCentered("GAME OVER", view_xview[0], 112, 8, 320)
+}
 </string>
           </argument>
         </arguments>

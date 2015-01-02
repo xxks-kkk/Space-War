@@ -162,6 +162,8 @@ if (keyboard_check(ord('X'))){
             <kind>1</kind>
             <string>oGame.reviveTimer = 20
 instance_create(other.x, other.y, oExplosion)
+global.pLives -= 1
+if (global.pLives &lt; 0) oGame.state = 1
 instance_destroy()
 </string>
           </argument>
@@ -186,6 +188,8 @@ instance_destroy()
           <argument>
             <kind>1</kind>
             <string>oGame.reviveTimer = 20
+global.pLives -= 1
+if (global.pLives &lt; 0) oGame.state = 1
 instance_destroy()
 </string>
           </argument>
