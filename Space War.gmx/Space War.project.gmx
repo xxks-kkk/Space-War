@@ -13,12 +13,17 @@
     <sprite>sprites\sEnemyFlyer</sprite>
     <sprite>sprites\sExplosion</sprite>
     <sprite>sprites\sWall</sprite>
+    <sprite>sprites\sFont</sprite>
+    <sprite>sprites\sPlayerShipIcon</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgStarField</background>
     <background>background\bgLevel1Tiles</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\drawTextCentered.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\oPlayerShip</object>
     <object>objects\oEnemyFlyer</object>
@@ -27,8 +32,11 @@
     <object>objects\oExplosion</object>
     <object>objects\oGame</object>
     <object>objects\oWall</object>
+    <object>objects\oInit</object>
+    <object>objects\oTitle</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rTitle</room>
     <room>rooms\rLevel1</room>
   </rooms>
   <help>
