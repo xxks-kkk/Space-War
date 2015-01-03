@@ -8,13 +8,15 @@
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\sPlayerShip</sprite>
-    <sprite>sprites\sPlayerShot1</sprite>
-    <sprite>sprites\sEnemyFlyer</sprite>
-    <sprite>sprites\sExplosion</sprite>
-    <sprite>sprites\sWall</sprite>
+    <sprite>sprites\sEnemyFlyer1</sprite>
+    <sprite>sprites\sEnemyFlyer2</sprite>
+    <sprite>sprites\sExplosion1</sprite>
+    <sprite>sprites\sExplosion2</sprite>
     <sprite>sprites\sFont</sprite>
+    <sprite>sprites\sPlayerShip</sprite>
     <sprite>sprites\sPlayerShipIcon</sprite>
+    <sprite>sprites\sPlayerShot1</sprite>
+    <sprite>sprites\sWall</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgStarField</background>
@@ -26,15 +28,17 @@
     <script>scripts\createDB.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\oPlayerShip</object>
-    <object>objects\oEnemyFlyer1</object>
     <object>objects\oEnemy</object>
-    <object>objects\oPlayerShot1</object>
+    <object>objects\oEnemyFlyer1</object>
+    <object>objects\oEnemyFlyer2</object>
     <object>objects\oExplosion</object>
+    <object>objects\oExplosion2</object>
     <object>objects\oGame</object>
-    <object>objects\oWall</object>
     <object>objects\oInit</object>
+    <object>objects\oPlayerShip</object>
+    <object>objects\oPlayerShot1</object>
     <object>objects\oTitle</object>
+    <object>objects\oWall</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rTitle</room>

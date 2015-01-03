@@ -20,9 +20,9 @@
   <width>16</width>
   <height>16</height>
   <frames>
-    <frame index="0">images\sEnemyFlyer_0.png</frame>
-    <frame index="1">images\sEnemyFlyer_1.png</frame>
-    <frame index="2">images\sEnemyFlyer_2.png</frame>
-    <frame index="3">images\sEnemyFlyer_3.png</frame>
+    <frame index="0">images\sEnemyFlyer1_0.png</frame>
+    <frame index="1">images\sEnemyFlyer1_1.png</frame>
+    <frame index="2">images\sEnemyFlyer1_2.png</frame>
+    <frame index="3">images\sEnemyFlyer1_3.png</frame>
   </frames>
 </sprite>
