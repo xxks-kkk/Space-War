@@ -37,6 +37,11 @@ global.myFont = font_add_sprite(sFont, ord(' '), false, 0)
 
 //Initialize a new game (global game info)
 global.pLives = 2
+
+//Create database for the game
+global.db = createDB()
+
+
 </string>
           </argument>
         </arguments>

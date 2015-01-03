@@ -80,7 +80,7 @@ if (tile_id == -1){
         instance_position(xx, yy-16, oWall) == noone &amp;&amp;
         instance_position(xx-16, yy, oWall) == noone )
         {
-        instance_create(xx, yy, oEnemyFlyer)
+        instance_create(xx, yy, oEnemyFlyer1)
     }
 }
 </string>

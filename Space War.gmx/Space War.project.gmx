@@ -23,10 +23,11 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\drawTextCentered.gml</script>
+    <script>scripts\createDB.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\oPlayerShip</object>
-    <object>objects\oEnemyFlyer</object>
+    <object>objects\oEnemyFlyer1</object>
     <object>objects\oEnemy</object>
     <object>objects\oPlayerShot1</object>
     <object>objects\oExplosion</object>
