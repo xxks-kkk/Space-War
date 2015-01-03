@@ -173,6 +173,10 @@ if (state == GAME_OVER){
         room_goto(rTitle)
     }
 }
+
+if keyboard_check(vk_backspace){
+    room_goto(rTitle)
+}
 </string>
           </argument>
         </arguments>

@@ -125,7 +125,7 @@ instance_create(xpos, ypos, object) - this is a very useful function!
                                       it creates an instance of the given object at the given position
 Note: X has to be capitalized
 */
-if (keyboard_check(ord('X'))){
+if device_mouse_check_button_pressed(0,mb_left){
    // add a firingDelay variable that ticks down while the key is pressed. And
    // when you let go of the key, it sets the delay to 0 so that as soon as you tap the key
    // again, you fire off a shot
