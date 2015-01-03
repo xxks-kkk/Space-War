@@ -53,6 +53,10 @@ while (GMSQL_QueryResult_Next(q)) {
 
 
 //show_debug_message("EnemyFlyer1 hp: " + string(hp))
+
+
+//change the animation speed. The default is 1, which is 1 frame per step
+image_speed = 0.4
 </string>
           </argument>
         </arguments>
