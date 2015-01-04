@@ -3,6 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles"/>
   <NewExtensions>
     <extension index="0">extensions\GMSQL</extension>
   </NewExtensions>
@@ -13,10 +14,11 @@
     <sprite>sprites\sExplosion1</sprite>
     <sprite>sprites\sExplosion2</sprite>
     <sprite>sprites\sFont</sprite>
-    <sprite>sprites\sPlayerShip</sprite>
+    <sprite>sprites\sPlayerShip1</sprite>
     <sprite>sprites\sPlayerShipIcon</sprite>
     <sprite>sprites\sPlayerShot1</sprite>
     <sprite>sprites\sWall</sprite>
+    <sprite>sprites\sPlayerShip2</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgStarField</background>
