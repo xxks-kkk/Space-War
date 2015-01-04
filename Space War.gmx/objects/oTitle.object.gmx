@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if device_mouse_check_button_pressed(0, mb_left){
+            <string>if mouse_check_button_pressed(mb_left){
     // "Interlaced from left" transition to it, to make it fade in and out in a fun way
     transition_kind = 10; // See GM Help for transition types
     room_goto(rLevel1);

@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>//show_debug_message("Selecting rows from Users...");
+event_inherited()
 q = GMSQL_Query(global.db, "SELECT * FROM Enemy WHERE id=1");
 if (q==-1) {
     show_debug_message("Query Failed!");
