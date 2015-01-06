@@ -174,8 +174,9 @@ if (state == GAME_OVER){
     }
 }
 
-if keyboard_check(vk_backspace){
-    room_goto(rTitle)
+//A temporary way to quit the game (A menu come up with quit option would be nicer)
+if mouse_check_button_pressed(mb_right){
+    game_end()
 }
 </string>
           </argument>

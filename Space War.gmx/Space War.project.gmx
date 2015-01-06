@@ -43,6 +43,7 @@
   <scripts name="scripts">
     <script>scripts\drawTextCentered.gml</script>
     <script>scripts\createDB.gml</script>
+    <script>scripts\save.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\oPlayerShip</object>
