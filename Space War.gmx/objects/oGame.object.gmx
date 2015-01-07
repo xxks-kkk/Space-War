@@ -31,6 +31,9 @@ alarm[0] = 15
 // setup revive timer
 reviveTimer = 0;
 
+// max number of active enemies allowed to be created
+MAX_ENEMIES = 5
+
 
 
 </string>
@@ -67,18 +70,23 @@ alarm[0] = 15
    this can be shot by player (by checking there is any wall object around))  
    if so, create the oEnemyFlyer object
 */
-xx = view_xview[0] + view_wview[0]
-yy = random(room_height)
 
-tile_id = tile_layer_find(1, xx, yy)
-//show_debug_message("tile_id: " + string(tile_id))
+numEnemies = instance_number(oEnemyFlyer1)
 
-if (tile_id == -1){
-    if (instance_position(xx, yy+16,oWall) == noone &amp;&amp;
-        instance_position(xx, yy-16, oWall) == noone &amp;&amp;
-        instance_position(xx-16, yy, oWall) == noone )
-        {
-        instance_create(xx, yy, oEnemyFlyer1)
+if (numEnemies &lt; MAX_ENEMIES){
+    xx = view_xview[0] + view_wview[0]
+    yy = random(room_height)
+
+    tile_id = tile_layer_find(1, xx, yy)
+    //show_debug_message("tile_id: " + string(tile_id))
+
+    if (tile_id == -1){
+        if (instance_position(xx, yy+16,oWall) == noone &amp;&amp;
+            instance_position(xx, yy-16, oWall) == noone &amp;&amp;
+            instance_position(xx-16, yy, oWall) == noone )
+            {
+            instance_create(xx, yy, oEnemyFlyer1)
+        }
     }
 }
 </string>
@@ -179,9 +187,11 @@ if mouse_check_button_pressed(mb_right){
 
 //Checks to see if the device OS is paused or not
 if os_is_paused(){
+    save() // save the game
     global.state = global.PAUSE
     //alarm[1] = 30
 }else if (global.state = global.PAUSE){
+    // touch to resume the game
     if mouse_check_button_pressed(mb_left){
         global.state = global.PLAY
         instance_activate_region(view_xview[0], 0, view_wview[0], room_height, true);
