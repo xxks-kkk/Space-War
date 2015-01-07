@@ -26,20 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>if mouse_check_button_pressed(mb_left){
-    q = load()
-    show_debug_message("program runs here!")
-    if (q == 1){
-        // do things when there is a save and load successfully
-       
-    }else{
-        // if there is no sv file, create a new game
-        // "Interlaced from left" transition to it, to make it fade in and out in a fun way
-        //transition_kind = 10; // See GM Help for transition types
-        room_goto(rLevel1);
-    
-    }
+    // "Interlaced from left" transition to it, to make it fade in and out in a fun way
+    transition_kind = 10; // See GM Help for transition types
+    room_goto(rLevel1);
 }
-
 </string>
           </argument>
         </arguments>
@@ -68,13 +58,7 @@ draw_set_color(c_yellow);
 drawTextCentered("SPACE WAR!", 0, 96, 8, 320);
 
 draw_set_color(c_white);
-drawTextCentered("TOUCH TO START!", 0, 224, 8, 320);
-
-//draw_set_color(c_orange)
-//drawTextCentered("LOAD", 0, 196, 8, 320);
-
-//change the font color back to white, which the default color for the game
-draw_set_color(c_white) 
+drawTextCentered("PRESS 'X' TO START!", 0, 224, 8, 320);
 </string>
           </argument>
         </arguments>

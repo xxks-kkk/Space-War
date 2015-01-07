@@ -41,10 +41,9 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\createDB.gml</script>
     <script>scripts\drawTextCentered.gml</script>
+    <script>scripts\createDB.gml</script>
     <script>scripts\save.gml</script>
-    <script>scripts\load.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\oPlayerShip</object>

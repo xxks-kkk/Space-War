@@ -1,4 +1,15 @@
+#define save
 /*
     save the game status
+
+
+
 */
-game_save("save.ini")
+
+#define load
+/*
+    load the game status
+
+
+
+*/
