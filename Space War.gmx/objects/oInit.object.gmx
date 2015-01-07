@@ -47,10 +47,6 @@ global.GAME_OVER = 1
 global.PAUSE  = 2
 global.state = global.PLAY
 
-
-// used to test state related variable
-global.TEST =  99
-
 </string>
           </argument>
         </arguments>
