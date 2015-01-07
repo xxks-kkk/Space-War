@@ -31,7 +31,7 @@ We won't have very much to initialize to begin with,
 but when your games get more complex, an object like this might become very useful.
 */
 
-
+show_debug_message("oInit runs!")
 //Since we'll be using sFont throughout the entire game, let's make it a global variable
 global.myFont = font_add_sprite(sFont, ord(' '), false, 0)
 
