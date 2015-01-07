@@ -31,10 +31,8 @@ alarm[0] = 15
 // setup revive timer
 reviveTimer = 0;
 
-// Game State Constants
-PLAY = 0
-GAME_OVER = 1
-state = PLAY
+
+
 </string>
           </argument>
         </arguments>
@@ -127,7 +125,7 @@ view_xview[] is an array that stores all  the x coordinates of all the views
 
 //view to move right 1 pixel with each step
 
-if (state == PLAY){
+if (global.state == global.PLAY){
     view_xview[0] += 1
 
     //we want the player to scroll, too.
@@ -168,7 +166,7 @@ if (state == PLAY){
 }
 
 
-if (state == GAME_OVER){
+if (global.state == global.GAME_OVER){
     if keyboard_check(vk_space){
         room_goto(rTitle)
     }
@@ -177,6 +175,17 @@ if (state == GAME_OVER){
 //A temporary way to quit the game (A menu come up with quit option would be nicer)
 if mouse_check_button_pressed(mb_right){
     game_end()
+}
+
+//Checks to see if the device OS is paused or not
+if os_is_paused(){
+    global.state = global.PAUSE
+    //alarm[1] = 30
+}else if (global.state = global.PAUSE){
+    if mouse_check_button_pressed(mb_left){
+        global.state = global.PLAY
+        instance_activate_region(view_xview[0], 0, view_wview[0], room_height, true);
+    }
 }
 </string>
           </argument>
@@ -208,12 +217,16 @@ You can also use draw_sprite_ext(),
 which has more parameters, such as the rotation and color of the image.
 */
 
-if (state == PLAY){
+if (global.state == global.PLAY){
     draw_sprite(sPlayerShipIcon, 0, view_xview[0]+3, 226)
     draw_text (view_xview[0]+14, 228, string(global.pLives))
 }
-else if (state == GAME_OVER){
+else if (global.state == global.GAME_OVER){
     drawTextCentered("GAME OVER", view_xview[0], 112, 8, 320)
+}else if (global.state == global.PAUSE){
+    drawTextCentered("PAUSED", view_xview[0], 112, 8, 320)
+}else if (global.state == global.TEST){
+    drawTextCentered("TEST", view_xview[0], 112, 8, 320)
 }
 </string>
           </argument>

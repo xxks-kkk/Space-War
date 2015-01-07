@@ -129,13 +129,14 @@ Note: X has to be capitalized
 // add a firingDelay variable that ticks down while the key is pressed. And
 // when you let go of the key, it sets the delay to 0 so that as soon as you tap the key
 // again, you fire off a shot
-if ( firingDelay &gt; 0){
-    firingDelay -= 1
-}else{
-    instance_create(x, y, oPlayerShot1)
-    firingDelay = firingDelayMax
-} 
-
+if (global.state = global.PLAY){
+    if ( firingDelay &gt; 0){
+        firingDelay -= 1
+    }else{
+        instance_create(x, y, oPlayerShot1)
+        firingDelay = firingDelayMax
+    } 
+}
 </string>
           </argument>
         </arguments>
@@ -187,7 +188,7 @@ instance_destroy()
             <kind>1</kind>
             <string>oGame.reviveTimer = 20
 global.pLives -= 1
-if (global.pLives &lt; 0) oGame.state = 1
+if (global.pLives &lt; 0) global.state = global.GAME_OVER
 instance_destroy()
 </string>
           </argument>
