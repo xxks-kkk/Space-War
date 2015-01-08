@@ -44,6 +44,9 @@
     <script>scripts\drawTextCentered.gml</script>
     <script>scripts\save.gml</script>
     <script>scripts\load.gml</script>
+    <script>scripts\reset.gml</script>
+    <script>scripts\load_objects.gml</script>
+    <script>scripts\load_stats.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\oPlayerShip</object>

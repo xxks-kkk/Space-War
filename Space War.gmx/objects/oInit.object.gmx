@@ -43,7 +43,8 @@ show_debug_message("oInit runs!")
 global.myFont = font_add_sprite(sFont, ord(' '), false, 0)
 
 //Initialize a new game (global game info)
-global.pLives = 2
+global.numLives = 2
+global.pLives = global.numLives
 
 
 //Game State Constants
@@ -60,6 +61,9 @@ global.L = 0
 // which room to go from title room
 global.room_idx = 1
 
+
+// name of the save
+global.sv = "save.ini"
 
 
 </string>
