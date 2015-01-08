@@ -202,7 +202,6 @@ if os_is_paused(){
         GMSQL_Close_Database(global.db)
         closed = true
     }    
-    //alarm[1] = 30
 }else if (global.state = global.PAUSE){
     if (opened = false){
         global.db = GMSQL_Open_Database_SQLITE("db.sqlite")

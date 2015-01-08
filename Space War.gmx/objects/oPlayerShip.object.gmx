@@ -98,17 +98,23 @@ They define where the object's position is on the screen
 "y+12", "y+16" is to compensate for the fact that the origin of our player ship sprite
 is in the upper left corner
 */
-if (keyboard_check(vk_up)){
-   if (y&gt;0) y -= speedUp
-}
-if (keyboard_check(vk_down)){
-   if (y + 12 &lt; room_height) y += speedUp
-}
-if (keyboard_check(vk_left)){
-   if (x &gt; view_xview[0]) x -= speedUp
-}
-if (keyboard_check(vk_right)){
-   if (x+16 &lt; view_xview[0] + view_wview[0]) x += speedUp
+
+//if (keyboard_check(vk_up)){
+   //if (y&gt;0) y -= speedUp
+//}
+//if (keyboard_check(vk_down)){
+   //if (y + 12 &lt; room_height) y += speedUp
+//}
+//if (keyboard_check(vk_left)){
+   //if (x &gt; view_xview[0]) x -= speedUp
+//}
+//if (keyboard_check(vk_right)){
+   //if (x+16 &lt; view_xview[0] + view_wview[0]) x += speedUp
+//}
+
+// touch to move
+if mouse_check_button_pressed(mb_left){
+    move_towards_point(mouse_x, mouse_y, 1.5)
 }
 
 /*

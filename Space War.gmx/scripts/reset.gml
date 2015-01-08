@@ -1,5 +1,5 @@
 /*
-    restores the game to the initial status
+    restores the game stats variables to the initial status
 
 */
 global.state = global.PLAY
