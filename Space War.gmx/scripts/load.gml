@@ -18,8 +18,16 @@ yy = 0
 /*
     load the room (level/map) related information
 */
-room_idx = ini_read_real ("room", "room_idx", 1)
-room_goto(room)
+if (global.L != 1){
+    global.room_idx = ini_read_real ("room", "room_idx", 1)
+    //room_goto(asset_get_index(room_get_name(room_idx)))  //tested
+}
+
+/* 
+    load the view
+*/
+view_xview[0] = ini_read_real("View", "x", 0)
+view_yview[0] = ini_read_real("View", "y", 0)
 
 /*
     load all the object
@@ -28,8 +36,9 @@ room_goto(room)
 // load PlayerShip
 xx = ini_read_real("PlayerShip", "x", 0)
 yy = ini_read_real("PlayerShip", "y", 0)
-global.pLives = ini_read_real("PlayerShip", "lives", 2)
+global.pLives = ini_read_real("PlayerShip", "lives", 2) //tested
 instance_create(xx, yy, oPlayerShip)
+
 
 // load Enemies
 while ini_key_exists("Enemy", string(n0)+string(n1)){

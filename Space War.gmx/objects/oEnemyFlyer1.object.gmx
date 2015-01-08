@@ -27,17 +27,15 @@
             <kind>1</kind>
             <string>//show_debug_message("Selecting rows from Users...");
 event_inherited()
+
+//db = GMSQL_Open_Database_SQLITE("db.sqlite"); //ideally, here should check if db is already open but no function provided in GMSQL [improve in the future]
+
 q = GMSQL_Query(global.db, "SELECT * FROM Enemy WHERE id=1");
 if (q==-1) {
     show_debug_message("Query Failed!");
     show_debug_message(GMSQL_GetLastError());
 }
-//while (GMSQL_QueryResult_Next(q)) {
-//    show_debug_message("Query Field0: " + string(GMSQL_QueryResult_GetNamedFieldReal(q,"id"))); //Get field by name
-//    show_debug_message("Query Field1: " + string(GMSQL_QueryResult_GetFieldString(q,1))); //Get field by index
-//    show_debug_message("Query Field2: " + string(GMSQL_QueryResult_GetFieldString(q,2))); //Get field by index
-//    show_debug_message("Query Field3: " + string(GMSQL_QueryResult_GetFieldReal(q,3))); //Get field by index
-//}
+
 
 /*
     This format is needed b/c we need to call query.first() before
@@ -50,6 +48,8 @@ while (GMSQL_QueryResult_Next(q)) {
     hp = GMSQL_QueryResult_GetNamedFieldReal(q,"hp"); //Get field by name
 }
 
+GMSQL_QueryResult_Finish(q)
+//GMSQL_Close_Database(db)
 //show_debug_message("hp = " + string(hp))
 
 

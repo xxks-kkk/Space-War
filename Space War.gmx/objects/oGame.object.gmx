@@ -34,8 +34,9 @@ reviveTimer = 0;
 // max number of active enemies allowed to be created
 MAX_ENEMIES = 5
 
-
-
+// variables indicate whether the db is open or not
+closed = false
+opened = false
 </string>
           </argument>
         </arguments>
@@ -135,7 +136,48 @@ view_xview[] is an array that stores all  the x coordinates of all the views
 
 if (global.state == global.PLAY){
     view_xview[0] += 1
+    
+    if (global.L == 1){
+        var file, n0, n1, inst
+        file = "save.ini"
+        ini_open(file)
+        n0 = 0
+        n1 = 0
+        inst = 0
+        xx = 0
+        yy = 0
+    
+        /* 
+            load the view
+        */
+        view_xview[0] = ini_read_real("View", "x", 0)
+        view_yview[0] = ini_read_real("View", "y", 0)
 
+        /*
+            load all the object
+        */
+
+        // load PlayerShip
+        xx = ini_read_real("PlayerShip", "x", 0)
+        yy = ini_read_real("PlayerShip", "y", 0)
+        instance_create(xx, yy, oPlayerShip)
+
+
+        // load Enemies
+        while ini_key_exists("Enemy", string(n0)+string(n1)){
+            inst=ini_read_real("Enemy", string(n0)+string(n1),0)
+            n1 += 1
+            xx = ini_read_real("Enemy", string(n0)+string(n1),0)
+            n1 += 1
+            yy = ini_read_real("Enemy", string(n0)+string(n1),0)
+            instance_create(xx,yy,inst)
+            n0 += 1
+            n1 = 0
+        }
+        ini_close()
+        global.L = -1
+    }
+    
     //we want the player to scroll, too.
     if (instance_exists(oPlayerShip)){ //ensure that the game does not crash if there is no oPlayerShip active in the room (we might if we destroy the player object when the player dies)
         oPlayerShip.x += 1
@@ -175,7 +217,7 @@ if (global.state == global.PLAY){
 
 
 if (global.state == global.GAME_OVER){
-    if keyboard_check(vk_space){
+    if mouse_check_button_pressed(mb_left){
         room_goto(rTitle)
     }
 }
@@ -187,10 +229,20 @@ if mouse_check_button_pressed(mb_right){
 
 //Checks to see if the device OS is paused or not
 if os_is_paused(){
-    save() // save the game
+    if (global.state != global.GAME_OVER){
+        save() // save the game
+    }
     global.state = global.PAUSE
+    if (closed = false) {
+        GMSQL_Close_Database(global.db)
+        closed = true
+    }    
     //alarm[1] = 30
 }else if (global.state = global.PAUSE){
+    if (opened = false){
+        global.db = GMSQL_Open_Database_SQLITE("db.sqlite")
+        opened = true
+    }
     // touch to resume the game
     if mouse_check_button_pressed(mb_left){
         global.state = global.PLAY

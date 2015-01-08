@@ -162,7 +162,7 @@ if (global.state = global.PLAY){
             <string>oGame.reviveTimer = 20
 instance_create(other.x, other.y, oExplosion)
 global.pLives -= 1
-if (global.pLives &lt; 0) oGame.state = 1
+if (global.pLives &lt; 0) global.state = global.GAME_OVER
 instance_destroy()
 </string>
           </argument>

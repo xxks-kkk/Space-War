@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="7" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,7 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
+            <string>//Initialize the GMSQL extension
+GMSQL_Init()
+
+db = GMSQL_Open_Database_SQLITE("db.sqlite");
+global.db = db
+
+
+/*
 oInit will be where we'll initialize the game.  
 We won't have very much to initialize to begin with, 
 but when your games get more complex, an object like this might become very useful.
@@ -38,14 +45,22 @@ global.myFont = font_add_sprite(sFont, ord(' '), false, 0)
 //Initialize a new game (global game info)
 global.pLives = 2
 
-//Create database for the game
-global.db = createDB()
 
 //Game State Constants
 global.PLAY = 0
 global.GAME_OVER = 1
 global.PAUSE  = 2
 global.state = global.PLAY
+
+
+// load status
+global.L = 0
+
+// variables used for loading
+// which room to go from title room
+global.room_idx = 1
+
+
 
 </string>
           </argument>

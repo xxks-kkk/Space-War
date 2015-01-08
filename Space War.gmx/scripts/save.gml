@@ -28,9 +28,16 @@ ini_write_real("room", "room_idx", room)
 */
 
 // save PlayerShip
-ini_write_real("PlayerShip", "x", oPlayerShip.x)
-ini_write_real("PlayerShip", "y", oPlayerShip.y)
-ini_write_real("PlayerShip", "lives", global.pLives)
+if instance_exists(oPlayerShip){
+    ini_write_real("PlayerShip", "x", oPlayerShip.x)
+    ini_write_real("PlayerShip", "y", oPlayerShip.y)
+    ini_write_real("PlayerShip", "lives", global.pLives)
+}
+
+// save the view
+ini_write_real("View", "x", view_xview[0])
+ini_write_real("View", "y", view_yview[0])
+
 
 // save Enemies
 inst_num = instance_number(oEnemy)
