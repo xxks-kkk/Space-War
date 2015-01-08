@@ -4,15 +4,13 @@
     Note: game_save("save.ini") only works on Windows.
 */
 
-var file, inst_num, inst, n0, n1
+var inst_num, inst, n0, n1
 
-file = "save.ini"
-
-if file_exists(file){
-    file_delete(file)
+if file_exists(global.sv){
+    file_delete(global.sv)
 }
 
-ini_open(file)
+ini_open(global.sv)
 n0 = 0;
 n1 = 0;
 /* 
@@ -54,7 +52,7 @@ while inst_num>0{
     n1 = 0
 }
 ini_close()
-if file_exists(file){
+if file_exists(global.sv){
     show_debug_message("saved!")
 }
        
