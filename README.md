@@ -13,8 +13,8 @@ this tutorial here: http://forums.tigsource.com/index.php?topic=3251.0
 
 ####TODO
 
-* add a pause to the game using instance_deactivate_all()  
+* ~~add a pause to the game using instance_deactivate_all()~~ [done]  
 * a Gradius-style power-up system
-* make sure the ship doesn't reappear inside a wall or enemy after the player dies.  
+* ~~make sure the ship doesn't reappear inside a wall or enemy after the player dies~~ [done] 
 * set checkpoints that the player could reappear at
 
