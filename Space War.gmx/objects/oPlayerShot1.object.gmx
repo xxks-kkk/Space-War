@@ -107,6 +107,8 @@ self - oPlayerShot in this event
 global - used for global variables who's scope crosses all objects and rooms
 */
 other.hp -= 1
+//global.mscore += global.minion_score
+score += global.minion_score
 instance_destroy()
 </string>
           </argument>

@@ -182,7 +182,7 @@ if (global.state == global.PLAY){
 
 if (global.state == global.GAME_OVER){
     if mouse_check_button_pressed(mb_left){
-        reset()
+        reset() //reset game stats variables
         room_goto(rTitle)
     }
 }
@@ -243,6 +243,7 @@ You can also use draw_sprite_ext(),
 which has more parameters, such as the rotation and color of the image.
 */
 
+
 if (global.state == global.PLAY){
     draw_sprite(sPlayerShipIcon, 0, view_xview[0]+3, 226)
     draw_text (view_xview[0]+14, 228, string(global.pLives))
@@ -254,6 +255,9 @@ else if (global.state == global.GAME_OVER){
 }else if (global.state == global.TEST){
     drawTextCentered("TEST", view_xview[0], 112, 8, 320)
 }
+
+// display score
+draw_text(view_xview[0]+260, view_yview[0]+16, string(score))
 </string>
           </argument>
         </arguments>

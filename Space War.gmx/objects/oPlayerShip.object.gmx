@@ -116,7 +116,6 @@ is in the upper left corner
 if mouse_check_button_pressed(mb_left){
     move_towards_point(mouse_x, mouse_y, 1.5)
 }
-
 /*
 when you press the "X" key, your ship fires a bullet
 */

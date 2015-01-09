@@ -37,6 +37,10 @@ ini_write_real("View", "x", view_xview[0])
 ini_write_real("View", "y", view_yview[0])
 
 
+// save the score
+ini_write_real("Score", "score", score)
+
+
 // save Enemies
 inst_num = instance_number(oEnemy)
 

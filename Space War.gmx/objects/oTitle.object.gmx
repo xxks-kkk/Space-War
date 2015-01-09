@@ -75,7 +75,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(global.myFont);
+            <string>//draw_set_font(global.myFont);
 
 draw_set_color(c_yellow);
 drawTextCentered("SPACE WAR!", 0, 96, 8, 320);

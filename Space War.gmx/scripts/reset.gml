@@ -5,3 +5,4 @@
 global.state = global.PLAY
 if file_exists(global.sv) file_delete(global.sv)
 global.pLives = global.numLives
+score = 0

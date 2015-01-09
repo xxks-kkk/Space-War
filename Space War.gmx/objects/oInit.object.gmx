@@ -46,7 +46,6 @@ global.myFont = font_add_sprite(sFont, ord(' '), false, 0)
 global.numLives = 2
 global.pLives = global.numLives
 
-
 //Game State Constants
 global.PLAY = 0
 global.GAME_OVER = 1
@@ -65,7 +64,12 @@ global.room_idx = 1
 // name of the save
 global.sv = "save.ini"
 
+// score
+global.minion_score = 10
+global.boss_score = 200
+score = 0
 
+draw_set_font(global.myFont);
 </string>
           </argument>
         </arguments>
