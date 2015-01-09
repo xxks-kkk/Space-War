@@ -114,7 +114,17 @@ is in the upper left corner
 
 // touch to move
 if mouse_check_button_pressed(mb_left){
-    move_towards_point(mouse_x, mouse_y, 1.5)
+    show_debug_message("oPlayerShip_x: " + string(x))
+    show_debug_message("oPlayerShip_y: " + string(y))
+    show_debug_message("mouse_x: " + string(mouse_x))
+    show_debug_message("mouse_y: " + string(mouse_y))
+    show_debug_message("distance: " + string(point_direction(x,y,mouse_x,mouse_y)))
+    
+    if (global.mov_allowed){
+        move_towards_point(mouse_x, mouse_y, 1.5)
+    }else{
+        
+    }
 }
 /*
 when you press the "X" key, your ship fires a bullet

@@ -194,6 +194,20 @@ if mouse_check_button_pressed(mb_right){
 
 //Checks to see if the device OS is paused or not
 if os_is_paused(){
+
+    /*
+        next 4 lines fix the bug: the ship will keep move to the mouse click position even under the pause state
+        
+        fix: deactive the ship object, and then create a ship object at the original ship position when pause happened
+             
+    
+    */
+    tmp_x = oPlayerShip.x
+    tmp_y = oPlayerShip.y
+    instance_deactivate_object(oPlayerShip)
+    instance_create(tmp_x,tmp_y, oPlayerShip)
+    
+    
     if (global.state != global.GAME_OVER){
         save() // save the game
     }
@@ -209,6 +223,16 @@ if os_is_paused(){
     }
     // touch to resume the game
     if mouse_check_button_pressed(mb_left){
+    
+        /*
+            next 2 lines continue fix the bug: the ship will keep move to the mouse click position even under the pause state
+            
+            now there are 2 ship objects. now, when touched, the game resumed, and one of the ship objects is destroyed
+        */
+        inst = instance_find(oPlayerShip,0)
+        with(inst) instance_destroy()
+        
+        
         global.state = global.PLAY
         instance_activate_region(view_xview[0], 0, view_wview[0], room_height, true);
     }

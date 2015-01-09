@@ -39,8 +39,7 @@ but when your games get more complex, an object like this might become very usef
 */
 
 show_debug_message("oInit runs!")
-//Since we'll be using sFont throughout the entire game, let's make it a global variable
-global.myFont = font_add_sprite(sFont, ord(' '), false, 0)
+
 
 //Initialize a new game (global game info)
 global.numLives = 2
@@ -69,7 +68,13 @@ global.minion_score = 10
 global.boss_score = 200
 score = 0
 
+// font related
+global.myFont = font_add_sprite(sFont, ord(' '), false, 0)
 draw_set_font(global.myFont);
+
+
+// control ship movement when paused
+global.mov_allowed = true
 </string>
           </argument>
         </arguments>
